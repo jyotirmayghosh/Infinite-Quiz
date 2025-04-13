@@ -7,6 +7,7 @@ Infinite Quiz is an Android application designed to deliver an endless quiz expe
 
 ## Architecture
 The app is structured using the **Android Clean Architecture** pattern, incorporating **MVVM (Model-View-ViewModel)** principles to promote a clean separation of concerns. Dependency injection is managed using **Hilt**.
+To enhance app performance, use **Gzip** to compress data before saving to the local db.
 
 ---
 
@@ -17,6 +18,7 @@ The app is structured using the **Android Clean Architecture** pattern, incorpor
 - **Local Storage**: Room Database
 - **Image Loading**: Coil
 - **Asynchronous Programming**: Kotlin Coroutines
+- **Compression**: Gzip
 
 ---
 
