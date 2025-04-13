@@ -104,3 +104,9 @@ The app is structured using the **Android Clean Architecture** pattern, incorpor
 ## Conclusion
 Infinite Quiz leverages modern Android tools and practices to provide an engaging and seamless quiz experience. Its modular and scalable architecture ensures ease of maintenance and potential feature expansion.
 
+## Screenshots
+![Quiz UI](assets/home.jpeg)
+![Quiz UI](assets/question.jpeg)
+![Quiz UI](assets/solution.jpeg)
+![Quiz UI](assets/statics.jpeg)
+
