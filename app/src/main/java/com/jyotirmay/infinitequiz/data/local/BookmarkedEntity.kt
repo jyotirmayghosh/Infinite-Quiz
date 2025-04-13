@@ -3,6 +3,10 @@ package com.jyotirmay.infinitequiz.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Represents a bookmarked quiz question stored in the local database.
+ * This entity is used by Room to create and manage the `bookmarked_table`.
+ */
 @Entity
 data class BookmarkedEntity(
     @PrimaryKey val uuidIdentifier: String,

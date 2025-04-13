@@ -38,13 +38,21 @@ import com.jyotirmay.infinitequiz.presentation.quiz.QuizViewModel
 import com.jyotirmay.infinitequiz.util.StringCompress
 import org.json.JSONArray
 
-
+/**
+ * Defines the navigation graph for the application.
+ * This function sets up the navigation routes and their corresponding composable screens.
+ *
+ * @param startDestination The initial route to be displayed when the app starts.
+ */
 @Composable
 fun NavGraph(startDestination: String) {
 
+    // Creates a NavController to manage app navigation
     val navController = rememberNavController()
 
+    // Defines the navigation host with the start destination
     NavHost(navController = navController, startDestination = startDestination) {
+        // Composable for the Home screen
         composable(route = Route.HomeScreen.route) {
             val viewModel: HomeViewModel = hiltViewModel()
             viewModel.fetchCountry()
@@ -60,6 +68,7 @@ fun NavGraph(startDestination: String) {
                 }
             )
         }
+        // Composable for the Quiz screen
         composable(route = Route.QuizScreen.route) {
             val viewModel: QuizViewModel = hiltViewModel()
             LaunchedEffect(Unit) {
@@ -75,6 +84,7 @@ fun NavGraph(startDestination: String) {
                     quizList = quizList.value
                 )
             } else {
+                // Displays a loading indicator while questions are being fetched
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -89,6 +99,8 @@ fun NavGraph(startDestination: String) {
                 }
             }
         }
+
+        // Composable for the Bookmark screen
         composable(route = Route.BookmarkScreen.route) {
             val viewModel: QuizViewModel = hiltViewModel()
             LaunchedEffect(Unit) {
@@ -128,6 +140,7 @@ fun NavGraph(startDestination: String) {
             } else {
                 val bookMarkedStatus = viewModel.noBookmarked.collectAsState()
                 if (bookMarkedStatus.value) {
+                    // Displays a message if no questions are bookmarked
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -141,6 +154,7 @@ fun NavGraph(startDestination: String) {
                         )
                     }
                 } else {
+                    // Displays a loading indicator while bookmarks are being fetched
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
